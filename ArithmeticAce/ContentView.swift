@@ -60,51 +60,59 @@ struct ContentView: View {
                           text: $inputGiven)
                     .multilineTextAlignment(.trailing)
             }
-            
-            Button(action: {
-                
-                // Answer has been checked!
-                answerChecked = true
-                
-                // Convert the input given to an integer, if possible
-                guard let productGiven = Int(inputGiven) else {
-                    // Sadness, not a number
+            ZStack {
+                Button(action: {
+                    
+                    // Answer has been checked!
+                    answerChecked = true
+                    
+                    // Convert the input given to an integer, if possible
+                    guard let productGiven = Int(inputGiven) else {
+                        // Sadness, not a number
+                        answerCorrect = false
+                        return
+                    }
+                    
+                    // Check the answer!
+                    if productGiven == correctProduct {
+                        // Celebrate! 👍🏼
+                        answerCorrect = true
+                    } else {
+                        // Sadness, they gave a number, but it's correct 😭
+                        answerCorrect = false
+                    }
+                }, label: {
+                    Text("Check Answer")
+                        .font(.largeTitle)
+                })
+                    .padding()
+                    .buttonStyle(.bordered)
+                //only show this button when an answer has not been checked
+                    .opacity(answerChecked == false ? 1.0 : 0.0)
+         
+                Button(action: {
+                    //generate new question
+                    multiplicand = Int.random(in: 1...12)
+                    multiplier = Int.random(in: 1...12)
+                    //resset properties that track whats happening with the current question
+                    
+                    answerChecked = false
                     answerCorrect = false
-                    return
-                }
-                
-                // Check the answer!
-                if productGiven == correctProduct {
-                    // Celebrate! 👍🏼
-                    answerCorrect = true
-                } else {
-                    // Sadness, they gave a number, but it's correct 😭
-                    answerCorrect = false
-                }
-            }, label: {
-                Text("Check Answer")
-                    .font(.largeTitle)
-            })
-                .padding()
-                .buttonStyle(.bordered)
-            
-            Button(action: {
-                //generate new question
-                multiplicand = Int.random(in: 1...12)
-                multiplier = Int.random(in: 1...12)
-                //resset properties that track whats happening with the current question
-                
-                answerChecked = false
-                answerCorrect = false
-                
-                //reset the input field
-                inputGiven = ""
-            }, label: {
-                Text("New Question")
-                    .font(.largeTitle)
-                   
-            })
-            
+                    
+                    //reset the input field
+                    inputGiven = ""
+                }, label: {
+                    Text("New Question")
+                        .font(.largeTitle)
+                       
+                })
+                 
+                    .padding()
+                    .buttonStyle(.bordered)
+                    //only show this button when an answer has been checked
+                    .opacity(answerChecked == true ? 1.0 : 0.0)
+            }
+
             
             Spacer()
         }
