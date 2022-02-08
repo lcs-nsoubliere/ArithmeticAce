@@ -11,7 +11,10 @@ import SwiftUI
 struct ArithmeticAceApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //views
+//            ContentView()
+//            AdditionView()
+            DivisionView()
         }
     }
 }
