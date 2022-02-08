@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  ArithmeticAce
 //
-//  Created by Russell Gordon on 2022-02-07.
+//  Created by Noah Soubliere on 2022-02-07.
 //
 
 import SwiftUI
@@ -10,8 +10,8 @@ import SwiftUI
 struct ContentView: View {
     
     // MARK: Stored properties
-    let multiplicand = Int.random(in: 1...12)
-    let multiplier = Int.random(in: 1...12)
+    @State var multiplicand = Int.random(in: 1...12)
+    @State var multiplier = Int.random(in: 1...12)
     @State var inputGiven = ""
     
     // Has an answer been checked?
@@ -27,7 +27,7 @@ struct ContentView: View {
     }
     
     var body: some View {
-                
+        
         VStack(spacing: 0) {
             HStack {
                 Text("✕")
@@ -43,10 +43,18 @@ struct ContentView: View {
             Divider()
             
             HStack {
-                Image(systemName: "checkmark.circle")
-                    .foregroundColor(.green)
+                
+                ZStack{
+                    Image(systemName: "checkmark.circle")
+                        .foregroundColor(.green)
                     //        CONDITION      true  false
-                    .opacity(answerCorrect ? 1.0 : 0.0)
+                        .opacity(answerCorrect ? 1.0 : 0.0)
+                    
+                    Image(systemName: "x.square")
+                        .foregroundColor(.red)
+                    //CONDITION   AND   Condition            true  false
+                        .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
+                }
                 Spacer()
                 TextField("",
                           text: $inputGiven)
@@ -64,7 +72,7 @@ struct ContentView: View {
                     answerCorrect = false
                     return
                 }
-
+                
                 // Check the answer!
                 if productGiven == correctProduct {
                     // Celebrate! 👍🏼
@@ -80,11 +88,29 @@ struct ContentView: View {
                 .padding()
                 .buttonStyle(.bordered)
             
+            Button(action: {
+                //generate new question
+                multiplicand = Int.random(in: 1...12)
+                multiplier = Int.random(in: 1...12)
+                //resset properties that track whats happening with the current question
+                
+                answerChecked = false
+                answerCorrect = false
+                
+                //reset the input field
+                inputGiven = ""
+            }, label: {
+                Text("New Question")
+                    .font(.largeTitle)
+                   
+            })
+            
+            
             Spacer()
         }
         .padding(.horizontal)
         .font(.system(size: 72))
-
+        
         
     }
 }
