@@ -15,6 +15,7 @@
 		C80FA42327B4230B00AAED3A /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80FA42227B4230B00AAED3A /* LottieView.swift */; };
 		C80FA42827B4254900AAED3A /* 51926-happy.json in Resources */ = {isa = PBXBuildFile; fileRef = C80FA42727B4254900AAED3A /* 51926-happy.json */; };
 		C80FA42A27B426C900AAED3A /* 34175-sad-face.json in Resources */ = {isa = PBXBuildFile; fileRef = C80FA42927B426C900AAED3A /* 34175-sad-face.json */; };
+		C80FA42C27B42DB100AAED3A /* SubtractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80FA42B27B42DB100AAED3A /* SubtractionView.swift */; };
 		C8A126F227B2DB280040381A /* AdditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A126F127B2DB280040381A /* AdditionView.swift */; };
 		C8A126F427B2DEA60040381A /* DivisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A126F327B2DEA60040381A /* DivisionView.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		C80FA42227B4230B00AAED3A /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		C80FA42727B4254900AAED3A /* 51926-happy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "51926-happy.json"; path = "../../../../Downloads/51926-happy.json"; sourceTree = "<group>"; };
 		C80FA42927B426C900AAED3A /* 34175-sad-face.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "34175-sad-face.json"; sourceTree = "<group>"; };
+		C80FA42B27B42DB100AAED3A /* SubtractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractionView.swift; sourceTree = "<group>"; };
 		C8A126F127B2DB280040381A /* AdditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionView.swift; sourceTree = "<group>"; };
 		C8A126F327B2DEA60040381A /* DivisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +89,7 @@
 				C8A126F327B2DEA60040381A /* DivisionView.swift */,
 				81FDA62D27B160FF002471AE /* MultiplicationView.swift */,
 				C8A126F127B2DB280040381A /* AdditionView.swift */,
+				C80FA42B27B42DB100AAED3A /* SubtractionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				81FDA62C27B160FF002471AE /* ArithmeticAceApp.swift in Sources */,
 				C80FA42327B4230B00AAED3A /* LottieView.swift in Sources */,
 				C8A126F227B2DB280040381A /* AdditionView.swift in Sources */,
+				C80FA42C27B42DB100AAED3A /* SubtractionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
