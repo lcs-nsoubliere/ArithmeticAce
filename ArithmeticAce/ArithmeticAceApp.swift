@@ -12,9 +12,10 @@ struct ArithmeticAceApp: App {
     var body: some Scene {
         WindowGroup {
             //views
-//            ContentView()
+            MultiplicationView()
 //            AdditionView()
-            DivisionView()
+//            DivisionView()
+//            LottieView()
         }
     }
 }

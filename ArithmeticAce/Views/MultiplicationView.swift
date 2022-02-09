@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MultiplicationView: View {
     
     // MARK: Stored properties
     @State var multiplicand = Int.random(in: 1...12)
@@ -89,7 +89,7 @@ struct ContentView: View {
                     .buttonStyle(.bordered)
                 //only show this button when an answer has not been checked
                     .opacity(answerChecked == false ? 1.0 : 0.0)
-         
+                
                 Button(action: {
                     //generate new question
                     multiplicand = Int.random(in: 1...12)
@@ -104,15 +104,27 @@ struct ContentView: View {
                 }, label: {
                     Text("New Question")
                         .font(.largeTitle)
-                       
+                    
                 })
-                 
+                
                     .padding()
                     .buttonStyle(.bordered)
-                    //only show this button when an answer has been checked
+                //only show this button when an answer has been checked
                     .opacity(answerChecked == true ? 1.0 : 0.0)
             }
-
+            
+            //Animation Reaction
+            ZStack {
+                //correct answer:
+                LottieView(animationNamed: "51926-happy")
+                    .opacity(answerCorrect ? 1.0 : 0.0)
+                    .padding()
+                
+                //incorrect answer:
+                LottieView(animationNamed: "34175-sad-face")
+                    .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
+                    .padding()
+            }
             
             Spacer()
         }
@@ -123,8 +135,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MultiplicationView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MultiplicationView()
     }
 }
